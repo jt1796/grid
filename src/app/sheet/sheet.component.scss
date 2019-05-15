@@ -1,12 +1,19 @@
 .formula-bar {
     text-align: center;
+    height: 20px;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(10, 10%);
-    grid-template-rows: repeat(10, 10%);
+    grid-template-columns: repeat(100, 10%);
+    grid-template-rows: repeat(100, 5%);
+    background-color: grey;
+    height: calc(100% - 70px);
+    width: 100%;
+    overflow: scroll;
 }
 .cell {
     border: 1px solid black;
+    margin: 1px;
+    text-align: center;
 }

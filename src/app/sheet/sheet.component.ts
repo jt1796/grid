@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sheet.component.scss']
 })
 export class SheetComponent implements OnInit {
-  rows = 10;
-  cols = 10;
+  rows = 100;
+  cols = 100;
   cells: number[][];
 
   constructor() { }

@@ -1,9 +1,9 @@
 <div class="formula-bar">f(x)=<input type="text"></div>
 
 <div class="grid">
-  <ng-container *ngFor="let row of cells">
-    <ng-container *ngFor="let col of row">
-      <div class="cell">Hello</div>
+  <ng-container *ngFor="let row of cells; let ri = index">
+    <ng-container *ngFor="let col of row; let ci = index">
+      <div class="cell">Hello {{ ri }} {{ci}}</div>
     </ng-container>
   </ng-container>
 </div>
