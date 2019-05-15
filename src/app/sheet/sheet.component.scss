@@ -1,0 +1,12 @@
+.formula-bar {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 10%);
+}
+.cell {
+    border: 1px solid black;
+}
