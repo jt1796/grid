@@ -37,11 +37,20 @@ export class SheetComponent implements OnInit {
 
     // todo: trackBy on loops?
     // todo: if perc is 0, nudge it so it doesnt get stuck
+    // todo: scroll should only affect one direction
     if (approxVertPerc < 20) {
       this.addRowToTop();
     }
     if (approxVertPerc > 60) {
       this.addRowToBottom();
+    }
+
+    if (approxHorizPerc > 60) {
+      this.addColToRight();
+    }
+
+    if (approxHorizPerc < 20) {
+      this.addColToLeft();
     }
   }
 
@@ -71,6 +80,29 @@ export class SheetComponent implements OnInit {
       newrow.push({ row: nextRowNum, col: firstColNum + i });
     }
     this.cells.push(newrow);
+  }
+
+  addColToRight() {
+    const nextColNum = this.cells[0][this.cells[0].length - 1].col + 1;
+    for (let i = 0; i < this.viewRows; i++) {
+      const rowToMutate = this.cells[i];
+      rowToMutate.shift();
+      rowToMutate.push({ row: i, col: nextColNum });
+    }
+  }
+
+  addColToLeft() {
+    const nextColNum = this.cells[0][0].col - 1;
+
+    if (nextColNum < 0) {
+      return;
+    }
+
+    for (let i = 0; i < this.viewRows; i++) {
+      const rowToMutate = this.cells[i];
+      rowToMutate.pop();
+      rowToMutate.unshift({ row: i, col: nextColNum });
+    }
   }
 
 }
