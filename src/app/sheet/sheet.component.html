@@ -3,7 +3,7 @@
 <div class="grid" (scroll)="onGridScroll($event)">
   <ng-container *ngFor="let row of cells; let ri = index">
     <ng-container *ngFor="let col of row; let ci = index">
-      <div class="cell">Hello {{ ri }} {{ci}}</div>
+      <div class="cell">Cell {{ cells[ri][ci].row }} {{ cells[ri][ci].col }}</div>
     </ng-container>
   </ng-container>
 </div>
