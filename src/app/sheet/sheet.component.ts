@@ -17,6 +17,8 @@ export class SheetComponent implements OnInit {
   cells: Cell[][];
   activeCell: Cell;
 
+  cellData: { [key: string]: string } = {};
+
   constructor() { }
 
   ngOnInit() {
@@ -66,10 +68,12 @@ export class SheetComponent implements OnInit {
       return;
     }
 
-    this.cells.pop();
+    this.extractDataFromRow(this.cells.pop());
+    
     for (let i = 0; i < this.viewCols; i++) {
       newrow.push({ row: nextRowNum, col: firstColNum + i });
     }
+    this.insertDataIntoNewRow(newrow);
     this.cells.unshift(newrow);
   }
 
@@ -78,10 +82,12 @@ export class SheetComponent implements OnInit {
     const firstColNum = this.cells[this.cells.length - 1][0].col;
     const newrow = [];
 
-    this.cells.shift();
+    this.extractDataFromRow(this.cells.shift());
+
     for (let i = 0; i < this.viewCols; i++ ) {
       newrow.push({ row: nextRowNum, col: firstColNum + i });
     }
+    this.insertDataIntoNewRow(newrow);
     this.cells.push(newrow);
   }
 
@@ -110,7 +116,21 @@ export class SheetComponent implements OnInit {
 
   cellClick(cell: Cell) {
     this.activeCell = cell;
-    console.log(this.activeCell);
+    // todo focus the input
   }
 
+  extractDataFromRow(row: Cell[]) {
+    row
+      .filter(c => c.value)
+      .forEach(c => this.cellData[`${c.row}-${c.col}`] = c.value);
+  }
+
+  insertDataIntoNewRow(row: Cell[]) {
+    row.forEach(c => {
+      const key = `${c.row}-${c.col}`;
+      if (this.cellData[key]) {
+        c.value = this.cellData[key];
+      }
+    });
+  }
 }
