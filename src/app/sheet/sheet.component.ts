@@ -38,7 +38,7 @@ export class SheetComponent implements OnInit {
 
     const approxHorizPerc = grid.scrollLeft / grid.scrollWidth * 100;
 
-    // todo: trackBy on loops?
+    // todo: trackBy on loops? -- tested, harmed performance. May try manually adding/removing to DOM
     // todo: if perc is 0, nudge it so it doesnt get stuck
     // todo: scroll should only affect one direction
     if (approxVertPerc < 20) {
