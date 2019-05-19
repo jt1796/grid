@@ -69,7 +69,7 @@ export class SheetComponent implements OnInit {
     }
 
     this.extractDataFromRow(this.cells.pop());
-    
+
     for (let i = 0; i < this.viewCols; i++) {
       newrow.push({ row: nextRowNum, col: firstColNum + i });
     }
@@ -116,7 +116,7 @@ export class SheetComponent implements OnInit {
 
   cellClick(cell: Cell) {
     this.activeCell = cell;
-    // todo focus the input
+    document.getElementById('formulaInput').focus();
   }
 
   extractDataFromRow(row: Cell[]) {

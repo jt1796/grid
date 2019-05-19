@@ -1,4 +1,4 @@
-<div class="formula-bar">f(x)=<input [value]="activeCell.value || ''" (input)="activeCell.value = $event.target.value" type="text"></div>
+<div class="formula-bar">f(x)=<input id="formulaInput" [value]="activeCell.value || ''" (input)="activeCell.value = $event.target.value" type="text"></div>
 
 <div class="grid" (scroll)="onGridScroll($event)">
   <ng-container *ngFor="let row of cells;">
