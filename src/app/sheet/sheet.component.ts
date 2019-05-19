@@ -23,4 +23,17 @@ export class SheetComponent implements OnInit {
     }
   }
 
+  onGridScroll(e: Event) {
+    const grid = e.srcElement as HTMLElement;
+
+    const approxVertPerc = grid.scrollTop / grid.scrollHeight * 100;
+    console.log(approxVertPerc);
+
+    const approxHorizPerc = grid.scrollLeft / grid.scrollWidth * 100;
+    console.log(approxHorizPerc);
+
+    // When scroll is near bottom/top, add on rows, take rows from top
+    // near right/ left
+  }
+
 }
