@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 export interface Cell {
   row: number;
   col: number;
+  value?: string;
 }
 
 @Component({
@@ -14,6 +15,7 @@ export class SheetComponent implements OnInit {
   viewRows = 100;
   viewCols = 100;
   cells: Cell[][];
+  activeCell: Cell;
 
   constructor() { }
 
@@ -26,6 +28,7 @@ export class SheetComponent implements OnInit {
       }
       this.cells.push(currow);
     }
+    this.activeCell = this.cells[0][0];
   }
 
   onGridScroll(e: Event) {
@@ -103,6 +106,11 @@ export class SheetComponent implements OnInit {
       rowToMutate.pop();
       rowToMutate.unshift({ row: i, col: nextColNum });
     }
+  }
+
+  cellClick(cell: Cell) {
+    this.activeCell = cell;
+    console.log(this.activeCell);
   }
 
 }
