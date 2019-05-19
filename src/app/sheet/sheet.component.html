@@ -3,7 +3,7 @@
 <div class="grid" (scroll)="onGridScroll($event)">
   <ng-container *ngFor="let row of cells;">
     <ng-container *ngFor="let cell of row;">
-      <div class="cell" (click)="cellClick(cell)">Cell {{ cell.row }} {{ cell.col }} {{ cell.value }}</div>
+      <div class="cell" [class.activeCell]="cell.row === activeCell.row && cell.col === activeCell.col"  (click)="cellClick(cell)">Cell {{ cell.row }} {{ cell.col }} {{ cell.value }}</div>
     </ng-container>
   </ng-container>
 </div>
