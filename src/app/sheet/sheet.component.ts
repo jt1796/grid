@@ -37,7 +37,6 @@ export class SheetComponent implements OnInit {
 
     // todo: trackBy on loops?
     // todo: if perc is 0, nudge it so it doesnt get stuck
-    // todo: if stop it going negative
     if (approxVertPerc < 20) {
       this.addRowToTop();
     }
@@ -50,6 +49,10 @@ export class SheetComponent implements OnInit {
     const nextRowNum = this.cells[0][0].row - 1;
     const firstColNum = this.cells[0][0].col;
     const newrow = [];
+
+    if (nextRowNum < 0) {
+      return;
+    }
 
     this.cells.pop();
     for (let i = 0; i < this.viewCols; i++) {
