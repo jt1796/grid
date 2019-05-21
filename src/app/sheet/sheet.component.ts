@@ -21,6 +21,7 @@ export class SheetComponent implements OnInit {
 
   constructor() { }
 
+  // todo: read from cellData here. Will need it when we save/load spreadsheets
   ngOnInit() {
     this.cells = [];
     for (let r = 0; r < this.viewCols; r++) {
