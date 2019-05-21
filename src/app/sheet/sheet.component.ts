@@ -122,12 +122,12 @@ export class SheetComponent implements OnInit {
   extractDataFromRow(row: Cell[]) {
     row
       .filter(c => c.value)
-      .forEach(c => this.cellData[`${c.row}-${c.col}`] = c.value);
+      .forEach(c => this.cellData[this.getCellCode(c)] = c.value);
   }
 
   insertDataIntoNewRow(row: Cell[]) {
     row.forEach(c => {
-      const key = `${c.row}-${c.col}`;
+      const key = this.getCellCode(c);
       if (this.cellData[key]) {
         c.value = this.cellData[key];
       }
@@ -144,5 +144,9 @@ export class SheetComponent implements OnInit {
     } while(n > 0);
 
     return alpha;
+  }
+
+  getCellCode(cell: Cell): string {
+    return this.numToAlpha(cell.col) + cell.row;
   }
 }

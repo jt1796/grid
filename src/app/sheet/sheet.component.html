@@ -9,7 +9,7 @@
     <div class="cell leftCol">{{ ri }}</div>
     <ng-container *ngFor="let cell of row; let ci = index">
       <div class="cell" [class.activeCell]="cell.row === activeCell.row && cell.col === activeCell.col"  (click)="cellClick(cell)">
-        {{ numToAlpha(cell.col) }}{{ cell.row }} {{ cell.value }}
+        {{ getCellCode(cell) }} {{ cell.value }}
       </div>
     </ng-container>
   </ng-container>
