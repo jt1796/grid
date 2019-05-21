@@ -7,7 +7,6 @@
     display: grid;
     grid-template-columns: repeat(100, 10%);
     grid-template-rows: repeat(100, 5%);
-    background-color: lightgray;
     height: calc(100% - 70px);
     width: 100%;
     overflow: scroll;
@@ -16,8 +15,23 @@
     border: 1px solid black;
     margin: 1px;
     text-align: center;
+    background-color: lightgrey;
 }
 
 .activeCell {
     background-color: lightblue;
+}
+
+.topRow {
+    top: 0;
+    z-index: 10;
+    position: sticky;
+    background-color: lightgreen;
+}
+
+.leftCol {
+    left: 0;
+    z-index: 10;
+    position: sticky;
+    background-color: lightgreen;
 }

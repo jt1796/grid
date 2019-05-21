@@ -1,9 +1,9 @@
 <div class="formula-bar">f(x)=<input id="formulaInput" [value]="activeCell.value || ''" (input)="activeCell.value = $event.target.value" type="text"></div>
 
 <div class="grid" (scroll)="onGridScroll($event)">
-  <ng-container *ngFor="let row of cells;">
-    <ng-container *ngFor="let cell of row;">
-      <div class="cell" [class.activeCell]="cell.row === activeCell.row && cell.col === activeCell.col"  (click)="cellClick(cell)">Cell {{ cell.row }} {{ cell.col }} {{ cell.value }}</div>
+  <ng-container *ngFor="let row of cells; let ri = index">
+    <ng-container *ngFor="let cell of row; let ci = index">
+      <div class="cell" [class.leftCol]="ci === 0"  [class.topRow]="ri === 0" [class.activeCell]="cell.row === activeCell.row && cell.col === activeCell.col"  (click)="cellClick(cell)">Cell {{ cell.row }} {{ cell.col }} {{ cell.value }}</div>
     </ng-container>
   </ng-container>
 </div>
