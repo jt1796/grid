@@ -133,4 +133,16 @@ export class SheetComponent implements OnInit {
       }
     });
   }
+
+  numToAlpha(n: number) {
+    let alpha = '';
+    do {
+      const rem = n % 26;
+      n = Math.floor(n / 26);
+
+      alpha += String.fromCharCode(65 + rem);
+    } while(n > 0);
+
+    return alpha;
+  }
 }

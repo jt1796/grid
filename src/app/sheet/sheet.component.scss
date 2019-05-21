@@ -5,7 +5,7 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(100, 10%);
+    grid-template-columns: repeat(101, 10%);
     grid-template-rows: repeat(100, 5%);
     height: calc(100% - 70px);
     width: 100%;
@@ -16,6 +16,7 @@
     margin: 1px;
     text-align: center;
     background-color: lightgrey;
+    padding-top: 5%;
 }
 
 .activeCell {
@@ -23,15 +24,31 @@
 }
 
 .topRow {
+    margin: 0;
+    border: none;
     top: 0;
     z-index: 10;
     position: sticky;
     background-color: lightgreen;
+    text-align: center;
 }
 
 .leftCol {
+    margin: 0;
+    border: none;
     left: 0;
     z-index: 10;
     position: sticky;
     background-color: lightgreen;
+    text-align: center;
+}
+
+.corner {
+    margin: 0;
+    border: none;
+    background-color: darkgreen;
+    position: sticky;
+    z-index: 15;
+    left: 0;
+    top: 0;
 }
