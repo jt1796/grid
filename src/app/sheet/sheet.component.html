@@ -3,11 +3,11 @@
 <div class="grid" (scroll)="onGridScroll($event)">
 
   <div class="cell corner"></div>
-  <div class="cell topRow" *ngFor="let col of cells[0]; let ci = index">{{ numToAlpha(ci) }}</div>
+  <div class="cell topRow" *ngFor="let cell of cells[0]">{{ numToAlpha(cell.col) }}</div>
   
-  <ng-container *ngFor="let row of cells; let ri = index">
-    <div class="cell leftCol">{{ ri }}</div>
-    <ng-container *ngFor="let cell of row; let ci = index">
+  <ng-container *ngFor="let row of cells">
+    <div class="cell leftCol">{{ row[0].row }}</div>
+    <ng-container *ngFor="let cell of row">
       <div class="cell" [class.activeCell]="cell.row === activeCell.row && cell.col === activeCell.col"  (click)="cellClick(cell)">
         {{ getCellCode(cell) }} {{ cell.value }}
       </div>
